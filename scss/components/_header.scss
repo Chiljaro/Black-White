@@ -1,0 +1,61 @@
+//css del header
+$bp-menu: l;
+$primary-color: #222;
+$secondary-color: #eee;
+
+.main-header{
+	background: $primary-color;
+	
+}
+
+.logo{
+	display: block;
+	height: 25px;
+	color: $secondary-color;
+	margin: 12px 0;
+}
+
+.main-menu{
+	@include edMenu($bp-menu);
+	
+	a {
+		color: $secondary-color;
+		font-size: .95em;
+		display: block;
+
+		@include from($bp-menu){
+			height: 49px;
+			line-height: 49px;
+
+			&:hover{
+				box-shadow: 0 -3px tomato inset;
+			}
+		}
+
+	}
+	
+	.menu-item {
+		@include to($bp-menu){
+			border-bottom: 1px solid rgba(#fff,.2);
+		}
+	}
+}
+
+
+.main-nav {
+
+	@include edNav(right,$bp-menu);
+
+	@include to($bp-menu){
+		align-self: stretch;
+		margin-top: 49px; 
+		background: #333232
+	}
+}
+
+
+
+.nav-toggle {
+	@include navToggle(15px,$secondary-color);
+	@include showTo($bp-menu);
+}
